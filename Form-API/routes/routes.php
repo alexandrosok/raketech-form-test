@@ -1,7 +1,7 @@
 <?php
 
-
-namespace Raketech_Form_Test;
+namespace RakeTechTest;
+include_once($_SERVER["DOCUMENT_ROOT"] . "/wp-content/plugins/raketech-form-test/Form-API/controllers/Health.controller.php");
 
 class Router extends \WP_REST_Controller
 {
@@ -26,7 +26,7 @@ class Router extends \WP_REST_Controller
         register_rest_route($this->namespace, '/manage/health', array(
             'methods' => 'GET',
             'callback' => function () {
-                //return controller::getHealthReport();
+                return HealthController::GetHealthStatus();
             }
         ));
     }

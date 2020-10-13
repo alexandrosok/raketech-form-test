@@ -8,6 +8,8 @@
  * Author URI:
  */
 
+require_once($_SERVER["DOCUMENT_ROOT"] . "/wp-content/plugins/raketech-form-test/Form-API/routes/routes.php");
+
 add_action('admin_bar_menu', 'my_admin_bar_menu', 100);
 function my_admin_bar_menu($wp_admin_bar)
 {
@@ -36,7 +38,7 @@ function raketech_form_test_init()
 }
 
 add_action('rest_api_init', function () {
-    $Router = new Raketech_Form_Test\Router();
+    $Router = new \RakeTechTest\Router();
     $Router->InitializeRoutes();
 });
 
