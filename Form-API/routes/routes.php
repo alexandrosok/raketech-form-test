@@ -25,10 +25,24 @@ class Router extends \WP_REST_Controller
             }
         ));
 
+        register_rest_route($this->namespace, '/form/company-details', array(
+            'methods' => 'POST',
+            'callback' => function ($request) {
+                return FormController::SetCompanyDetails($request->get_body());
+            }
+        ));
+
         register_rest_route($this->namespace, '/form/title/get', array(
             'methods' => 'GET',
             'callback' => function () {
                 return FormController::GetFormTitle();
+            }
+        ));
+
+        register_rest_route($this->namespace, '/form/company-details/get', array(
+            'methods' => 'GET',
+            'callback' => function () {
+                return FormController::GetCompanyDetails();
             }
         ));
 

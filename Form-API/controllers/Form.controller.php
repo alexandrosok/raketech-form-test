@@ -3,10 +3,6 @@
 
 namespace RakeTechTest;
 
-
-use PHPMailer\PHPMailer\Exception;
-use function Sodium\add;
-
 class FormController
 {
 
@@ -41,9 +37,26 @@ class FormController
 
     }
 
-    public static function SetCompanyDetails()
+    public static function SetCompanyDetails($data)
     {
-
+        $details = json_decode($data)->details;
+        $CompanyDetailsField = get_option('company-details');
+        if (!$CompanyDetailsField) {
+            add_option("company-details", $details);
+            return json_encode([
+                "status" => 'success',
+                "message" => "Company Details stored",
+                "data" => get_option("company-details")
+            ]);
+        } else {
+            delete_option("company-details");
+            add_option("company-details", $details);
+            return json_encode([
+                "status" => 'success',
+                "message" => "Company Details stored",
+                "data" => get_option("company-details")
+            ]);
+        }
     }
 
     public static function GetFormTitle()
@@ -58,6 +71,6 @@ class FormController
 
     public static function GetCompanyDetails()
     {
-
+        return get_option('company-details');
     }
 }

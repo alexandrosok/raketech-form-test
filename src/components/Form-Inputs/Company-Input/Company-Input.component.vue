@@ -5,7 +5,7 @@
         <v-textarea v-model="CompanyDetails" label="Company Details"/>
       </v-col>
       <v-col cols="2">
-        <v-btn :disabled="isDisabled">
+        <v-btn @click="CallSetCompanyDetails()" :disabled="isDisabled">
           Save
         </v-btn>
       </v-col>
@@ -15,16 +15,31 @@
 
 <script>
     import './Company-Input.style.scss';
+    import FormHttpService from "../../../Services/Form.service";
 
     export default {
         name: 'App-Company-Input',
 
         data: () => ({
+            FormHttpService,
             CompanyDetails: '',
         }),
+        beforeMount() {
+            this.FormHttpService = new FormHttpService(this.$http);
+            this.FormHttpService.GetCompanyDetails().then((response) => {
+                this.CompanyDetails = response.details
+            })
+        },
         computed: {
             isDisabled() {
                 return this.CompanyDetails.length <= 1;
+            }
+        },
+        methods: {
+            CallSetCompanyDetails() {
+                this.FormHttpService.SetCompanyDetails(this.CompanyDetails).then((response) => {
+                    console.log(response);
+                })
             }
         }
     }
