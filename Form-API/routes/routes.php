@@ -3,6 +3,7 @@
 namespace RakeTechTest;
 include_once($_SERVER["DOCUMENT_ROOT"] . "/wp-content/plugins/raketech-form-test/Form-API/controllers/Health.controller.php");
 include_once($_SERVER["DOCUMENT_ROOT"] . "/wp-content/plugins/raketech-form-test/Form-API/controllers/Form.controller.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/wp-content/plugins/raketech-form-test/Form-API/routes/libs/FormClient.routes.php");
 
 class Router extends \WP_REST_Controller
 {
@@ -18,6 +19,8 @@ class Router extends \WP_REST_Controller
      */
     public function InitializeRoutes()
     {
+
+        FormClientRoutes::FormClientRoutes();
 
         register_rest_route($this->namespace, '/form/submit-message', array(
             'methods' => 'POST',
@@ -82,11 +85,4 @@ class Router extends \WP_REST_Controller
             }
         ));
     }
-
-    public function getNamespace()
-    {
-        return $this->namespace;
-    }
-
-
 }
