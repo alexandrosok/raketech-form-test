@@ -8,27 +8,21 @@
       <v-alert v-else dense outlined type="error">
         Something went wrong
       </v-alert>
-
       <v-container>
-
         <v-row class="text-center">
-          <v-col cols="3">
+          <v-col cols="5">
             <AppTitleInput/>
           </v-col>
+          <v-col cols="5">
+            <AppSubmitMessageInput/>
+          </v-col>
         </v-row>
         <v-row class="text-center">
-          <v-col cols="3">
+          <v-col cols="5">
             <AppCompanyInput/>
           </v-col>
-        </v-row>
-        <v-row class="text-center">
-          <v-col cols="3">
+          <v-col cols="5">
             <AppAboutInput/>
-          </v-col>
-        </v-row>
-        <v-row class="text-center">
-          <v-col cols="3">
-            <AppSubmitMessageInput/>
           </v-col>
         </v-row>
       </v-container>

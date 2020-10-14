@@ -76,6 +76,34 @@ class FormController
         }
     }
 
+    public static function SetSubmitMessage($data)
+    {
+
+        $message = json_decode($data)->message;
+        $SubmitMessageField = get_option('form-submit-message');
+        if (!$SubmitMessageField) {
+            add_option("form-submit-message", $message);
+            return json_encode([
+                "status" => 'success',
+                "message" => "Submit Message stored",
+                "data" => get_option("form-submit-message")
+            ]);
+        } else {
+            delete_option("form-submit-message");
+            add_option("form-submit-message", $message);
+            return json_encode([
+                "status" => 'success',
+                "message" => "Submit Message stored",
+                "data" => get_option("form-submit-message")
+            ]);
+        }
+    }
+
+    public static function GetSubmitMessage()
+    {
+        return get_option("form-submit-message");
+    }
+
     public static function GetFormTitle()
     {
         return get_option("form-title");

@@ -7,8 +7,22 @@ export default class FormHttpService {
       SetCompanyDetails: 'http://localhost:4007/form/company-details',
       GetCompanyDetails: 'http://localhost:4007/form/company-details/get',
       SetAbout: 'http://localhost:4007/form/about',
-      GetAbout: 'http://localhost:4007/form/about/get'
+      GetAbout: 'http://localhost:4007/form/about/get',
+      SetSubmitMessage: 'http://localhost:4007/form/submit-message',
+      GetSubmitMessage: 'http://localhost:4007/form/submit-message/get'
     }
+  }
+
+  SetSubmitMessage(message) {
+    return this.http.post(this.UrlList.SetSubmitMessage, {message}).then((response) => {
+      return response.data;
+    })
+  }
+
+  GetSubmitMessage() {
+    return this.http.get(this.UrlList.GetSubmitMessage).then((response) => {
+      return response.data;
+    })
   }
 
   SetAbout(about) {
