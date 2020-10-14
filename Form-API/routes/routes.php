@@ -18,6 +18,13 @@ class Router extends \WP_REST_Controller
      */
     public function InitializeRoutes()
     {
+        register_rest_route($this->namespace, '/form/about', array(
+            'methods' => 'POST',
+            'callback' => function ($request) {
+                return FormController::SetAbout($request->get_body());
+            }
+        ));
+
         register_rest_route($this->namespace, '/form/title', array(
             'methods' => 'POST',
             'callback' => function ($request) {
@@ -29,6 +36,13 @@ class Router extends \WP_REST_Controller
             'methods' => 'POST',
             'callback' => function ($request) {
                 return FormController::SetCompanyDetails($request->get_body());
+            }
+        ));
+
+        register_rest_route($this->namespace, '/form/about/get', array(
+            'methods' => 'GET',
+            'callback' => function () {
+                return FormController::GetAbout();
             }
         ));
 

@@ -32,9 +32,26 @@ class FormController
         }
     }
 
-    public static function SetAbout()
+    public static function SetAbout($data)
     {
-
+        $about = json_decode($data)->about;
+        $AboutField = get_option('form-about');
+        if (!$AboutField) {
+            add_option("form-about", $about);
+            return json_encode([
+                "status" => 'success',
+                "message" => "About Content stored",
+                "data" => get_option("form-about")
+            ]);
+        } else {
+            delete_option("form-about");
+            add_option("form-about", $about);
+            return json_encode([
+                "status" => 'success',
+                "message" => "About stored",
+                "data" => get_option("form-about")
+            ]);
+        }
     }
 
     public static function SetCompanyDetails($data)
@@ -66,7 +83,7 @@ class FormController
 
     public static function GetAbout()
     {
-
+        return get_option('form-about');
     }
 
     public static function GetCompanyDetails()
