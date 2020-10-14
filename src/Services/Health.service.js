@@ -2,7 +2,7 @@ export default class HealthHttpService {
   constructor(http) {
     this.http = http;
     this.UrlList = {
-      AppHealth: ' http://localhost:4007/health/status'
+      AppHealth: 'http://localhost:4007/health/status'
     };
   }
 

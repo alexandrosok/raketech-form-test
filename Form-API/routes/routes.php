@@ -18,14 +18,21 @@ class Router extends \WP_REST_Controller
      */
     public function InitializeRoutes()
     {
-        register_rest_route($this->namespace, '/', array(
+        register_rest_route($this->namespace, '/form/title', array(
             'methods' => 'POST',
             'callback' => function ($request) {
-                return controller::getPlugInLogo($request->get_body());
+                return FormController::SetFormTitle($request->get_body());
             }
         ));
 
-        register_rest_route($this->namespace, '/manage/health', array(
+        register_rest_route($this->namespace, '/form/title/get', array(
+            'methods' => 'GET',
+            'callback' => function () {
+                return FormController::GetFormTitle();
+            }
+        ));
+
+        register_rest_route($this->namespace, '/health/status', array(
             'methods' => 'GET',
             'callback' => function () {
                 return HealthController::GetHealthStatus();

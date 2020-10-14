@@ -26,7 +26,11 @@
             <AppAboutInput/>
           </v-col>
         </v-row>
-
+        <v-row class="text-center">
+          <v-col cols="3">
+            <AppSubmitMessageInput/>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
@@ -38,10 +42,12 @@
     import AppTitleInput from "./components/Form-Inputs/Title-Input/Title-Input.component";
     import AppCompanyInput from "./components/Form-Inputs/Company-Input/Company-Input.component";
     import AppAboutInput from "./components/Form-Inputs/About-Input/About-Input.component";
+    import AppSubmitMessageInput
+        from "./components/Form-Inputs/Submit-Message-Input/Submit-Message-Input.component";
 
     export default {
         name: 'App',
-        components: {AppAboutInput, AppCompanyInput, AppTitleInput},
+        components: {AppSubmitMessageInput, AppAboutInput, AppCompanyInput, AppTitleInput},
         data: () => ({
             AppState: null,
             AppStatus: null,

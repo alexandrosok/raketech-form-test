@@ -2,7 +2,10 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="10">
-        <v-textarea v-model="CompanyDetails" label="Company Details"/>
+        <v-text-field
+          v-model="SubmitMessage"
+          label="Submit Message"
+        ></v-text-field>
       </v-col>
       <v-col cols="2">
         <v-btn :disabled="isDisabled">
@@ -14,17 +17,17 @@
 </template>
 
 <script>
-    import './Company-Input.style.scss';
+    import './Submit-Message-Input.style.scss';
 
     export default {
-        name: 'App-Company-Input',
-
+        name: 'App-Submit-Message-Input',
         data: () => ({
-            CompanyDetails: '',
+            disabled: true,
+            SubmitMessage: ''
         }),
         computed: {
             isDisabled() {
-                return this.CompanyDetails.length <= 1;
+                return this.SubmitMessage.length <= 1;
             }
         }
     }
