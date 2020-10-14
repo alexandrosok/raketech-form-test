@@ -1,15 +1,19 @@
+import {Host} from '../Helpers/UrlList';
+
 export default class FormHttpService {
   constructor(http) {
+    this.host = Host;
     this.http = http;
+    this.namespace = 'raketech-form-test/v1';
     this.UrlList = {
-      SetFormTitle: 'http://localhost/wp-json/raketech-form-test/v1/form/title',
-      GetFormTitle: 'http://localhost/wp-json/raketech-form-test/v1/form/title/get',
-      SetCompanyDetails: 'http://localhost/wp-json/raketech-form-test/v1/form/company-details',
-      GetCompanyDetails: 'http://localhost/wp-json/raketech-form-test/v1/form/company-details/get',
-      SetAbout: 'http://localhost/wp-json/raketech-form-test/v1/form/about',
-      GetAbout: 'http://localhost/wp-json/raketech-form-test/v1/form/about/get',
-      SetSubmitMessage: 'http://localhost/wp-json/raketech-form-test/v1/form/submit-message',
-      GetSubmitMessage: 'http://localhost/wp-json/raketech-form-test/v1/form/submit-message/get'
+      SetFormTitle: `${this.host}/wp-json/${this.namespace}/form/title`,
+      GetFormTitle: `${this.host}/wp-json/${this.namespace}/form/title/get`,
+      SetCompanyDetails: `${this.host}/wp-json/${this.namespace}/form/company-details`,
+      GetCompanyDetails: `${this.host}/wp-json/${this.namespace}/form/company-details/get`,
+      SetAbout: `${this.host}/wp-json/${this.namespace}/form/about`,
+      GetAbout: `${this.host}/wp-json/${this.namespace}/form/about/get`,
+      SetSubmitMessage: `${this.host}/wp-json/${this.namespace}/form/submit-message`,
+      GetSubmitMessage: `${this.host}/wp-json/${this.namespace}/form/submit-message/get`
     }
   }
 
