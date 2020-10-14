@@ -2,14 +2,14 @@ export default class FormHttpService {
   constructor(http) {
     this.http = http;
     this.UrlList = {
-      SetFormTitle: 'http://localhost:4007/form/title',
-      GetFormTitle: 'http://localhost:4007/form/title/get',
-      SetCompanyDetails: 'http://localhost:4007/form/company-details',
-      GetCompanyDetails: 'http://localhost:4007/form/company-details/get',
-      SetAbout: 'http://localhost:4007/form/about',
-      GetAbout: 'http://localhost:4007/form/about/get',
-      SetSubmitMessage: 'http://localhost:4007/form/submit-message',
-      GetSubmitMessage: 'http://localhost:4007/form/submit-message/get'
+      SetFormTitle: 'http://localhost/wp-json/raketech-form-test/v1/form/title',
+      GetFormTitle: 'http://localhost/wp-json/raketech-form-test/v1/form/title/get',
+      SetCompanyDetails: 'http://localhost/wp-json/raketech-form-test/v1/form/company-details',
+      GetCompanyDetails: 'http://localhost/wp-json/raketech-form-test/v1/form/company-details/get',
+      SetAbout: 'http://localhost/wp-json/raketech-form-test/v1/form/about',
+      GetAbout: 'http://localhost/wp-json/raketech-form-test/v1/form/about/get',
+      SetSubmitMessage: 'http://localhost/wp-json/raketech-form-test/v1/form/submit-message',
+      GetSubmitMessage: 'http://localhost/wp-json/raketech-form-test/v1/form/submit-message/get'
     }
   }
 
@@ -60,6 +60,4 @@ export default class FormHttpService {
       return response.data;
     })
   }
-
-
 }

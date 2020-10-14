@@ -101,21 +101,37 @@ class FormController
 
     public static function GetSubmitMessage()
     {
-        return get_option("form-submit-message");
+        return [
+            'status' => 'success',
+            'message' => 'Submit Message Record',
+            'submitMessage' => get_option("form-submit-message")
+        ];
     }
 
     public static function GetFormTitle()
     {
-        return get_option("form-title");
+        return [
+            'status' => 'success',
+            'message' => 'Form Title Record',
+            'title' => get_option("form-title")
+        ];
     }
 
     public static function GetAbout()
     {
-        return get_option('form-about');
+        return [
+            'status' => 'success',
+            'message' => 'About Content',
+            'about' => get_option('form-about')
+        ];
     }
 
     public static function GetCompanyDetails()
     {
-        return get_option('company-details');
+        return [
+            'status' => 'success',
+            'message' => 'Company Details Record',
+            'details' => get_option('company-details')
+        ];
     }
 }
