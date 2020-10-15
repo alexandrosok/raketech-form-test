@@ -1,24 +1,25 @@
 # raketech-form-test
+This is a wordpress headless plugin written in VueJS using wp-json
 
-## Project setup
+
+## For Development 
+Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+
+
+## For Production 
+
+Compiles and minifies for production
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+In the dist/index.html the paths should point /wp-content/plugins/raketech-form-test/dist
+This can be done manual or confugued from webpack.
