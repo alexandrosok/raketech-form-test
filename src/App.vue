@@ -45,13 +45,14 @@
         data: () => ({
             AppState: null,
             AppStatus: null,
+            overlay: false,
             HealthHttpService,
         }),
         beforeMount() {
             this.HealthHttpService = new HealthHttpService(this.$http);
             this.HealthHttpService.GetAppHealth().then((response) => {
-                this.AppStatus = response.status === HttpResponse.Success;
-                this.AppState = response.status;
+                this.AppStatus = !!response;
+                this.AppState = HttpResponse.Success;
             }).catch(error => console.log(error))
         },
         methods: {}

@@ -1,8 +1,12 @@
+import {Host} from "../Helpers/UrlList";
+
 export default class HealthHttpService {
   constructor(http) {
     this.http = http;
+    this.host = Host;
+    this.namespace = 'raketech-form-test/v1';
     this.UrlList = {
-      AppHealth: 'http://localhost:4007/health/status'
+      AppHealth: `${this.host}/wp-json/${this.namespace}/health/status`,
     };
   }
 

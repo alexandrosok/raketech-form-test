@@ -10,6 +10,13 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-overlay absolute :value="overlay">
+      <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+      ></v-progress-circular>
+    </v-overlay>
   </v-container>
 </template>
 
@@ -22,6 +29,7 @@
 
         data: () => ({
             FormHttpService,
+            overlay: false,
             CompanyDetails: '',
         }),
         beforeMount() {
@@ -37,8 +45,10 @@
         },
         methods: {
             CallSetCompanyDetails() {
+                this.overlay = true;
                 this.FormHttpService.SetCompanyDetails(this.CompanyDetails).then((response) => {
                     console.log(response);
+                    this.overlay = false;
                 })
             }
         }

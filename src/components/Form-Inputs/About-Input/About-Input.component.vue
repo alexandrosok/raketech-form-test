@@ -10,18 +10,28 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-overlay absolute :value="overlay">
+      <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+      ></v-progress-circular>
+    </v-overlay>
   </v-container>
+
 </template>
 
 <script>
     import './About-Input.style.scss';
     import FormHttpService from "../../../Services/Form.service";
+    import AppOverlay from "../../Overlay/Overlay.component";
 
     export default {
         name: 'App-About-Input',
-
+        components: {AppOverlay},
         data: () => ({
             FormHttpService,
+            overlay: null,
             AboutContent: ''
         }),
         computed: {
@@ -37,8 +47,10 @@
         },
         methods: {
             CallSetAbout() {
+                this.overlay = true;
                 this.FormHttpService.SetAbout(this.AboutContent).then((response) => {
-                    console.log(response)
+                    console.log(response);
+                    this.overlay = false;
                 })
             }
         }

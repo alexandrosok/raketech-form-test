@@ -13,6 +13,13 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-overlay absolute :value="overlay">
+      <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+      ></v-progress-circular>
+    </v-overlay>
   </v-container>
 </template>
 
@@ -27,6 +34,7 @@
             FormTitle: '',
             FormHttpService,
             disabled: false,
+            overlay: false,
         }),
         beforeMount() {
             this.FormHttpService = new FormHttpService(this.$http);
@@ -41,7 +49,9 @@
         },
         methods: {
             CallSetFormTitle() {
+                this.overlay = true;
                 this.FormHttpService.SetFormTitle(this.FormTitle).then((response) => {
+                    this.overlay = false;
                     console.log(response)
                 })
             }

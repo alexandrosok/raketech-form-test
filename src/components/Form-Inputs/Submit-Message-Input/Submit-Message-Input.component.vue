@@ -13,6 +13,13 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-overlay absolute :value="overlay">
+      <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+      ></v-progress-circular>
+    </v-overlay>
   </v-container>
 </template>
 
@@ -25,7 +32,8 @@
         data: () => ({
             FormHttpService,
             disabled: true,
-            SubmitMessage: ''
+            SubmitMessage: '',
+            overlay: false,
         }),
         computed: {
             isDisabled() {
@@ -38,7 +46,11 @@
         },
         methods: {
             CallSetSubmitMessage() {
-                this.FormHttpService.SetSubmitMessage(this.SubmitMessage).then(response => console.log(response));
+                this.overlay = true;
+                this.FormHttpService.SetSubmitMessage(this.SubmitMessage).then((response) => {
+                    console.log(response);
+                    this.overlay = false;
+                });
             }
         }
     }
