@@ -24,3 +24,5 @@ npm run build
 In the dist/index.html the paths of the js and css should point /wp-content/plugins/raketech-form-test/dist
 <br />
 This can be done manual or confugued from webpack.
+<br />
+Then it can be installed from the wp admin like any other normal plugin
