@@ -8,97 +8,72 @@ class FormController
 
     /**
      * @param $data
-     * @return false|string
+     * @return array
      */
     public static function SetFormTitle($data)
     {
         $title = json_decode($data)->title;
-        $FormField = get_option('form-title');
-        if (!$FormField) {
-            add_option("form-title", $title);
-            return json_encode([
-                "status" => 'success',
-                "message" => "Form Title stored",
-                "data" => get_option("form-title")
-            ]);
-        } else {
-            delete_option("form-title");
-            add_option("form-title", $title);
-            return json_encode([
-                "status" => 'success',
-                "message" => "Form Title stored",
-                "data" => get_option("form-title")
-            ]);
-        }
+        delete_option("form-title");
+        add_option("form-title", $title);
+        return [
+            "status" => 'success',
+            "message" => "Form Title stored",
+            "data" => get_option("form-title")
+        ];
     }
 
+    /**
+     * @param $data
+     * @return array
+     */
     public static function SetAbout($data)
     {
         $about = json_decode($data)->about;
-        $AboutField = get_option('form-about');
-        if (!$AboutField) {
-            add_option("form-about", $about);
-            return json_encode([
-                "status" => 'success',
-                "message" => "About Content stored",
-                "data" => get_option("form-about")
-            ]);
-        } else {
-            delete_option("form-about");
-            add_option("form-about", $about);
-            return json_encode([
-                "status" => 'success',
-                "message" => "About stored",
-                "data" => get_option("form-about")
-            ]);
-        }
+        delete_option("form-about");
+        add_option("form-about", $about);
+        return [
+            "status" => 'success',
+            "message" => "About stored",
+            "data" => get_option("form-about")
+        ];
     }
 
+    /**
+     * @param $data
+     * @return array
+     */
     public static function SetCompanyDetails($data)
     {
-        $details = json_decode($data)->details;
-        $CompanyDetailsField = get_option('company-details');
-        if (!$CompanyDetailsField) {
-            add_option("company-details", $details);
-            return json_encode([
-                "status" => 'success',
-                "message" => "Company Details stored",
-                "data" => get_option("company-details")
-            ]);
-        } else {
-            delete_option("company-details");
-            add_option("company-details", $details);
-            return json_encode([
-                "status" => 'success',
-                "message" => "Company Details stored",
-                "data" => get_option("company-details")
-            ]);
-        }
+        $details = json_decode($data)->CompanyDetails;
+        delete_option("company-details");
+        add_option("company-details", $details);
+        return [
+            "status" => 'success',
+            "message" => "Company Details stored",
+            "details" => get_option("company-details")
+        ];
     }
 
+    /**
+     * @param $data
+     * @return false|string
+     */
     public static function SetSubmitMessage($data)
     {
 
         $message = json_decode($data)->message;
-        $SubmitMessageField = get_option('form-submit-message');
-        if (!$SubmitMessageField) {
-            add_option("form-submit-message", $message);
-            return json_encode([
-                "status" => 'success',
-                "message" => "Submit Message stored",
-                "data" => get_option("form-submit-message")
-            ]);
-        } else {
-            delete_option("form-submit-message");
-            add_option("form-submit-message", $message);
-            return json_encode([
-                "status" => 'success',
-                "message" => "Submit Message stored",
-                "data" => get_option("form-submit-message")
-            ]);
-        }
+        delete_option("form-submit-message");
+        add_option("form-submit-message", $message);
+        return json_encode([
+            "status" => 'success',
+            "message" => "Submit Message stored",
+            "data" => get_option("form-submit-message")
+        ]);
     }
 
+    /**
+     * @return array
+     */
     public static function GetSubmitMessage()
     {
         return [
@@ -108,6 +83,9 @@ class FormController
         ];
     }
 
+    /**
+     * @return array
+     */
     public static function GetFormTitle()
     {
         return [
@@ -117,6 +95,9 @@ class FormController
         ];
     }
 
+    /**
+     * @return array
+     */
     public static function GetAbout()
     {
         return [
@@ -126,6 +107,9 @@ class FormController
         ];
     }
 
+    /**
+     * @return array
+     */
     public static function GetCompanyDetails()
     {
         return [
