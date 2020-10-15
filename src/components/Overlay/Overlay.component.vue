@@ -1,11 +1,11 @@
 <template>
-  <v-overlay absolute :value="overlay">
+  <div class="overlay-component" :value="overlay">
     <v-progress-circular
       :size="50"
       color="primary"
       indeterminate
     ></v-progress-circular>
-  </v-overlay>
+  </div>
 </template>
 
 <script>
@@ -17,3 +17,7 @@
         data: () => ({})
     }
 </script>
+<style>
+  .overlay-component {
+  }
+</style>

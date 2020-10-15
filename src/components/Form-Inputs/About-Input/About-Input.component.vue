@@ -10,7 +10,7 @@
         </v-btn>
       </v-col>
     </v-row>
-    <v-overlay absolute :value="overlay">
+    <v-overlay fixed :value="overlay">
       <v-progress-circular
         :size="50"
         color="primary"
