@@ -22,4 +22,5 @@ Compiles and minifies for production
 npm run build
 ```
 In the dist/index.html the paths should point /wp-content/plugins/raketech-form-test/dist
+<br />
 This can be done manual or confugued from webpack.
