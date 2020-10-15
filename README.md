@@ -13,9 +13,19 @@ Compiles and hot-reloads for development
 npm run serve
 ```
 
+Host Url
+```
+Helpers/UrlList.js {Host} should point on the localhost
+```
 
 
 ## For Production 
+
+
+Host Url
+```
+Helpers/UrlList.js {Host} should point on http://18.194.254.254
+```
 
 Compiles and minifies for production
 ```
